@@ -35,7 +35,7 @@ const RentType = () => {
       subDescSpanUnderline: " Wheely Connect eligible zones.",
     },
   ];
-  const proWithWheelyElements = rentType.map((type) => (
+  const rentTypeElements = rentType.map((type) => (
     <div
       className={`${
         darkMode && "bg-slate-950 text-blue-400"
@@ -43,17 +43,21 @@ const RentType = () => {
     >
       <div className="text-center space-y-1">
         <h2 className="text-xl font-bold">{type.head}</h2>
-        <p className={`${darkMode && "opacity-45"} text-sm opacity-75`}>{type.headDesc}</p>
+        <p className={`${darkMode && "opacity-45"} text-sm opacity-75`}>
+          {type.headDesc}
+        </p>
       </div>
       <div
         className={`${
-          darkMode && "bg-blue-500 text-blue-950"
-        } p-4 rounded-lg flex gap-5 justify-center items-center bg-blue-200`}
+          darkMode ? "bg-blue-500 text-gray-950" : "bg-blue-200"
+        } p-4 rounded-lg flex gap-5 justify-center items-center`}
       >
         <div className="p-2 rounded-full bg-blue-600">{type.rentTypeIcon}</div>
         <div className="space-y-1">
           <h3 className="text-sm font-bold">{type.rentType}</h3>
-          <p className={`${darkMode && "opacity-100"} text-[13px] opacity-75`}>{type.rentTypeDesc}</p>
+          <p className={`${darkMode ? "opacity-90" : "opacity-75"} text-[13px]`}>
+            {type.rentTypeDesc}
+          </p>
         </div>
       </div>
       <div className="text-sm space-y-7">
@@ -69,8 +73,12 @@ const RentType = () => {
           </span>
         </p>
         <p>
-          <span className={`${darkMode && "opacity-85"} font-bold`}>{type.subDescSpan}</span>
-          <span className={`${darkMode && "opacity-50"}`}>{type.subDescAfterSpan}</span>
+          <span className={`${darkMode && "opacity-85"} font-bold`}>
+            {type.subDescSpan}
+          </span>
+          <span className={`${darkMode && "opacity-50"}`}>
+            {type.subDescAfterSpan}
+          </span>
           <Link className={`font-bold underline ${darkMode && "opacity-85"}`}>
             {type.subDescSpanUnderline}
           </Link>
@@ -87,7 +95,7 @@ const RentType = () => {
         </p>
       </div>
       <div className="flex gap-10 p-2 items-center justify-center">
-        {proWithWheelyElements}
+        {rentTypeElements}
       </div>
     </div>
   );

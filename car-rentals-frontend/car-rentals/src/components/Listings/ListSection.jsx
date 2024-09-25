@@ -73,7 +73,7 @@ const ListSection = () => {
           <p>Join Wheely and turn your car into a profitable asset.</p>
         </div>
       </div>
-    </div>
+    </div> 
   );
 };
 

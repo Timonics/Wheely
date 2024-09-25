@@ -2,7 +2,7 @@ import React from "react";
 import { useMyAppContext } from "../../../context/myAppContext";
 
 const WheelyInfo = () => {
-  const {darkMode} = useMyAppContext()
+  const { darkMode } = useMyAppContext();
   const typeInfo = [
     {
       head: "List your car",
@@ -23,10 +23,16 @@ const WheelyInfo = () => {
   ];
 
   const typeInfoElements = typeInfo.map((typeInfo) => (
-    <div className={`space-y-3 w-1/4 text-blue-950 ${darkMode && "text-blue-300"}`}>
+    <div
+      className={`space-y-3 w-1/4 ${
+        darkMode ? "text-blue-300" : "text-blue-950 "
+      }`}
+    >
       {typeInfo.icon}
       <h1 className="text-xl font-bold">{typeInfo.head}</h1>
-      <p className={`text-sm opacity-75 ${darkMode && "opacity-40"}`}>{typeInfo.desc}</p>
+      <p className={`text-sm  ${darkMode ? "opacity-40" : "opacity-75"}`}>
+        {typeInfo.desc}
+      </p>
     </div>
   ));
   return (

@@ -18,8 +18,8 @@ const App = () => {
         <Route path="register" element={<Signup />} />
       </Route>
       <Route path="rent-your-car" element={<ListingContainer />}>
-        <Route index element={<WheelyConnectInfo />} />
-        <Route path="wheely_standard" element={<WheelyInfo />} />
+        <Route index element={<WheelyInfo />} />
+        <Route path="wheely_connect" element={<WheelyConnectInfo />} />
       </Route>
     </Routes>
   );
