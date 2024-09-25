@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #cbd5e1;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.clip-left {
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+}
+
+.clip-right {
+/*   position: relative;
+ */  overflow: hidden;
+  clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
+}
