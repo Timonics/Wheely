@@ -65,7 +65,12 @@ const Nav = () => {
       <div className={`flex justify-between items-center `}>
         <Link className="italic">Wheely</Link>
         <div className="max-md:hidden gap-8 flex mr-4 items-center">
-          <Link to="auth" className={`rounded-md text-gray-900 ${darkMode && "text-gray-400"} font-bold`}>
+          <Link
+            to="auth"
+            className={`rounded-md  ${
+              darkMode ? "text-gray-400" : "text-gray-900"
+            } font-bold`}
+          >
             Log in
           </Link>
           <Link
