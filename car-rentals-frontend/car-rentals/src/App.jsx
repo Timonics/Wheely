@@ -8,6 +8,7 @@ import Signup from "./components/Auth/Signup";
 import ListingContainer from "./components/Listings/container/ListingContainer";
 import WheelyConnectInfo from "./components/Listings/TypeInfo/WheelyConnectInfo";
 import WheelyInfo from "./components/Listings/TypeInfo/WheelyInfo";
+import Book from "./components/Booking/Book";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route index element={<WheelyInfo />} />
         <Route path="wheely_connect" element={<WheelyConnectInfo />} />
       </Route>
+      <Route path="bookings" element={<Book />} />
     </Routes>
   );
 };

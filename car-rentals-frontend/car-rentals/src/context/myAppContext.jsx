@@ -16,7 +16,6 @@ const MyAppProvider = ({ children }) => {
     onSuccess: (token) => {
       setTokenResponse(token);
       setIsAuthenticated(true);
-      navigate("/");
     },
     onError: (error) => {
       console.error(error);
@@ -30,7 +29,7 @@ const MyAppProvider = ({ children }) => {
     setUserProfile(null);
   };
 
-  const setUserToken = async () => {
+  const googleLoginData = async () => {
     try {
       if (tokenResponse) {
         const loginDataResponse = await axios.get(
@@ -43,6 +42,7 @@ const MyAppProvider = ({ children }) => {
           }
         );
         setUserProfile(loginDataResponse.data);
+        navigate("/");
       }
     } catch (err) {
       console.error("Error", err);
@@ -50,7 +50,7 @@ const MyAppProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    setUserToken();
+    googleLoginData();
   }, [tokenResponse]);
 
   const toggleDarkMode = () => {
@@ -65,7 +65,7 @@ const MyAppProvider = ({ children }) => {
     googleAuthIn,
     googleSignOut,
     userProfile,
-    setUserProfile
+    setUserProfile,
   };
 
   return (

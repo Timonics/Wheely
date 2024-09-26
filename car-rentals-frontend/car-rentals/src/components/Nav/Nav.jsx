@@ -3,14 +3,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { IoMenu } from "react-icons/io5";
-import { TiThMenuOutline } from "react-icons/ti";
 import { FaCar } from "react-icons/fa";
 import { FaRegQuestionCircle } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
 import DarkMode from "../DarkMode/DarkMode";
 import { useMyAppContext } from "../../context/myAppContext";
 
 const Nav = () => {
-  const { darkMode } = useMyAppContext();
+  const { darkMode, userProfile, isAuthenticated } = useMyAppContext();
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const handleToogleMenuIsOpen = () => {
@@ -50,7 +50,7 @@ const Nav = () => {
           </Link>
           <div className="flex flex-col border rounded-lg">
             <Link
-              to="rent-your-car"
+              to="../rent-your-car"
               className="flex justify-between items-center p-3"
             >
               Rent out your car <FaCar />
@@ -63,19 +63,31 @@ const Nav = () => {
       </div>
 
       <div className={`flex justify-between items-center `}>
-        <Link className="italic">Wheely</Link>
+        <Link to="/" className="italic">
+          Wheely
+        </Link>
         <div className="max-md:hidden gap-8 flex mr-4 items-center">
+          {!isAuthenticated ? (
+            <Link
+              to="../auth"
+              className={`rounded-md  ${
+                darkMode ? "text-gray-400" : "text-gray-900"
+              } font-bold`}
+            >
+              Log in
+            </Link>
+          ) : (
+            <div className="flex flex-col items-center gap-1">
+              <img
+                src={userProfile.picture}
+                alt="Profile Pic"
+                className="object-cover w-9 h-9 rounded-full shadow-2xl"
+              />
+            </div>
+          )}
           <Link
-            to="auth"
-            className={`rounded-md  ${
-              darkMode ? "text-gray-400" : "text-gray-900"
-            } font-bold`}
-          >
-            Log in
-          </Link>
-          <Link
-            to="rent-your-car"
-            className="border-4 border-blue-400 text-blue-400 font-bold py-2 px-4 rounded-full"
+            to="../rent-your-car"
+            className="border-4 border-blue-400 text-blue-400 font-bold py-2 px-5 rounded-full"
           >
             Rent your Car
           </Link>

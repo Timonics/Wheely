@@ -1,9 +1,9 @@
 import React from "react";
 
 import Nav from "../components/Nav/Nav";
-import Hero from "../components/Hero/hero";
+import Hero from "../components/Hero/Hero";
 import Features from "../components/Features/Features";
-import ListSection from "../components/Listings/ListSection";
+import ListSection from "../components/EarnWithWheely/ListSection";
 import CarTypes from "../components/Cars-types/CarTypes";
 import WhatsNew from "../components/Whats-new/WhatsNew";
 import EndNote from "../components/EndNote/EndNote";
@@ -15,7 +15,11 @@ const Home = () => {
   return (
     <div className={`${darkMode && "bg-slate-800"}`}>
       <div className={`flex flex-col h-screen`}>
-        <div className={`bg-slate-50 ${darkMode && "bg-slate-950 text-slate-300"} p-4`}>
+        <div
+          className={`bg-slate-50 ${
+            darkMode && "bg-slate-950 text-slate-300"
+          } p-4`}
+        >
           <Nav />
         </div>
         <div
