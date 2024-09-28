@@ -16,16 +16,16 @@ const Home = () => {
     <div className={`${darkMode && "bg-slate-800"}`}>
       <div className={`flex flex-col h-screen`}>
         <div
-          className={`bg-slate-50 ${
-            darkMode && "bg-slate-950 text-slate-300"
+          className={`${
+            darkMode ? "bg-slate-950 text-slate-300" : "text-slate-700 bg-slate-200"
           } p-4`}
         >
           <Nav />
         </div>
         <div
-          className={`bg-slate-50 ${
-            darkMode && "bg-slate-950"
-          } p-4 h-5/6 shadow-lg`}
+          className={`p-4 h-[80%] ${
+            darkMode ? "bg-slate-950 shadow-2xl" : "bg-slate-200 shadow-lg"
+          } `}
         >
           <Hero />
         </div>
