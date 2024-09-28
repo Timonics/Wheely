@@ -15,9 +15,9 @@ const BookingNav = () => {
       <div>
         <Link
           to=".."
-          className={`${
-            darkMode ? "shadow-none" : "shadow-slate-300"
-          } w-fit p shadow-xl rounded-lg flex items-start`}
+          className={`font-bold ${
+            darkMode ? "text-blue-950" : "gradient-text"
+          } rounded-lg flex items-start`}
         >
           Wheely
         </Link>

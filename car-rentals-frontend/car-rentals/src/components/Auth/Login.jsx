@@ -11,11 +11,8 @@ import { useMyAppContext } from "../../context/myAppContext";
 const Login = () => {
   const db_url = import.meta.env.VITE_DB_URL;
   const navigate = useNavigate();
-  const {
-    googleAuthIn,
-    setIsAuthenticated,
-    setUserProfile,
-  } = useMyAppContext();
+  const { googleAuthIn, setIsAuthenticated, setUserProfile, darkMode } =
+    useMyAppContext();
 
   const [loginData, setLoginData] = useState({
     email: "",
@@ -54,8 +51,12 @@ const Login = () => {
   };
 
   return (
-    <div className="p-4 flex flex-col items-center justify-center w-5/6 gap-5">
-      <h1 className="text-2xl font-bold text-blue-600">
+    <div className="py-4 flex flex-col items-center justify-center w-5/6 gap-5">
+      <h1
+        className={`text-2xl font-bold ${
+          darkMode ? "text-blue-300" : "text-blue-600"
+        }`}
+      >
         Log in to your account
       </h1>
       <form className="w-full flex flex-col gap-3" onSubmit={handleSubmit}>
@@ -65,7 +66,9 @@ const Login = () => {
           value={loginData.email}
           placeholder="Email"
           onChange={handleChange}
-          className="outline-none p-3 border-b-2 border-b-blue-400"
+          className={`outline-none p-3 border-b-2 border-b-blue-400 ${
+            darkMode && "rounded-md bg-slate-500 bg-opacity-80"
+          }`}
         />
         <input
           type="text"
@@ -73,14 +76,19 @@ const Login = () => {
           value={loginData.password}
           placeholder="Password"
           onChange={handleChange}
-          className="outline-none p-3 border-b-2 border-b-blue-400"
+          className={`outline-none p-3 border-b-2 border-b-blue-400 ${
+            darkMode && "rounded-md bg-slate-500 bg-opacity-80"
+          }`}
         />
-        <button type="submit" className="p-3 rounded-lg bg-blue-400 font-bold">
+        <button
+          type="submit"
+          className="p-3 mt-5 rounded-lg bg-blue-400 font-bold"
+        >
           Log In
         </button>
       </form>
-      <div className="flex flex-col gap-1 items-center">
-        <p className="text-sm">
+      <div className="flex flex-col gap-2 items-center">
+        <p className={`${darkMode && "text-slate-400"} text-sm`}>
           Don't have a <span className="text-blue-400 font-bold">Wheely</span>{" "}
           account?{" "}
           <Link to="register" className="underline text-blue-600 font-semibold">
@@ -119,7 +127,9 @@ const Login = () => {
             }}
             className={`flex p-4 w-full items-center justify-center gap-4 rounded-lg ${
               item.id == 0 && "border-4 border-slate-300 bg-white"
-            } ${item.id == 1 && "bg-blue-900 opacity-95 text-slate-200"}
+            } ${darkMode && item.id == 0 && "bg-opacity-70"} ${
+              item.id == 1 && "bg-blue-900 opacity-95 text-slate-200"
+            }
              ${item.id == 2 && "bg-black opacity-90 text-slate-200"}`}
             onClick={item.handleClick}
           >

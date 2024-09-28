@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import carShopper from "../../assets/EarnWithWheely/CarShopper.avif";
 import { useMyAppContext } from "../../context/myAppContext";
 
+import BookingNav from "../Nav/BookingNav";
+
 const ListForm = () => {
   const { darkMode } = useMyAppContext();
   const [listForm, setListForm] = useState({
@@ -19,8 +21,15 @@ const ListForm = () => {
 
   return (
     <>
-      <div className="w-full h-[550px] relative shadow-xl">
+      <div className="w-full h-[550px] shadow-xl relative">
         <div className="h-full bg-slate-400 w-full flex">
+          <div
+            className={`${
+              darkMode ? "" : ""
+            } p-1 absolute w-full top-0 left-0 z-20`}
+          >
+            <BookingNav />
+          </div>
           <img
             src={carShopper}
             alt=""
@@ -38,7 +47,7 @@ const ListForm = () => {
           <div
             className={`w-4/5 space-y-3 ${
               darkMode ? "text-blue-400" : "text-blue-950"
-            }`}
+            } mt-20`}
           >
             <h1
               className={`text-3xl font-black ${darkMode && "text-blue-400"}`}
@@ -57,7 +66,9 @@ const ListForm = () => {
                 type="text"
                 value={listForm.brand}
                 onChange={handleChange}
-                className="outline-none p-3 rounded-md"
+                className={`outline-none p-3 rounded-md ${
+                  darkMode && "bg-slate-500 bg-opacity-80"
+                }`}
               />
               <input
                 placeholder="Model"
@@ -65,7 +76,9 @@ const ListForm = () => {
                 type="text"
                 value={listForm.model}
                 onChange={handleChange}
-                className="outline-none p-3 rounded-md"
+                className={`outline-none p-3 rounded-md ${
+                  darkMode && "bg-slate-500 bg-opacity-80"
+                }`}
               />
               <div className="flex gap-3">
                 <input
@@ -74,7 +87,9 @@ const ListForm = () => {
                   type="text"
                   value={listForm.year}
                   onChange={handleChange}
-                  className="outline-none p-3 rounded-md w-1/2"
+                  className={`outline-none p-3 rounded-md w-1/2 ${
+                    darkMode && "bg-slate-500 bg-opacity-80"
+                  }`}
                 />
                 <input
                   placeholder="Licence Plate"
@@ -82,7 +97,9 @@ const ListForm = () => {
                   type="text"
                   value={listForm.licence}
                   onChange={handleChange}
-                  className="outline-none p-3 rounded-md w-1/2"
+                  className={`outline-none p-3 rounded-md w-1/2 ${
+                    darkMode && "bg-slate-500 bg-opacity-80"
+                  }`}
                 />
               </div>
               <button

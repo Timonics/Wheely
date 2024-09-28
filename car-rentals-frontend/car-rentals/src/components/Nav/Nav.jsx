@@ -81,13 +81,13 @@ const Nav = () => {
               <img
                 src={userProfile.picture}
                 alt="Profile Pic"
-                className="object-cover w-9 h-9 rounded-full shadow-2xl"
+                className="object-cover w-9 h-9 rounded-full shadow-2xl opacity-85"
               />
             </div>
           )}
           <Link
             to="../rent-your-car"
-            className="border-4 border-blue-400 text-blue-400 font-bold py-2 px-5 rounded-full"
+            className="border-4 border-blue-400 gradient-text font-bold py-2 px-5 rounded-full transition hover:scale-110 ease-in-out duration-500"
           >
             Rent your Car
           </Link>

@@ -38,7 +38,7 @@ const ProListing = () => {
         }`}
       >
         You are already a professional or want to become with{" "}
-        <span className="text-blue-400">Wheely</span>?
+        <span className="gradient-text">Wheely</span>?
       </h1>
       <div className="flex gap-5 w-full h-full p-2">
         {proWithWheelyElements}

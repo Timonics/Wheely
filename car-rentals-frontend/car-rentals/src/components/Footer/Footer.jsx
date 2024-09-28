@@ -10,16 +10,20 @@ import { FaLinkedinIn } from "react-icons/fa6";
 import { useMyAppContext } from "../../context/myAppContext";
 
 const Footer = () => {
-  const {darkMode} = useMyAppContext()
+  const { darkMode } = useMyAppContext();
   const [isHovered, setIsHovered] = useState(null);
 
   return (
     <div className="h-screen">
       <div className=" h-full mt-4 flex flex-col">
-        <div className={`${darkMode && "bg-slate-300"} h-5/6 bg-slate-100 rounded-t-3xl p-10 space-y-12 text-blue-600`}>
+        <div
+          className={`${
+            darkMode && "bg-slate-300"
+          } h-5/6 bg-slate-100 rounded-t-3xl p-10 space-y-12 text-blue-600`}
+        >
           <div className="flex justify-between ">
-            <div className="p-2 rounded-lg shadow-lg shadow-gray-400">
-              wheely
+            <div className="p-2 rounded-lg bg-gray-950 shadow-lg shadow-gray-400">
+              <p className="gradient-text">wheely</p>
             </div>
             <div></div>
           </div>
@@ -97,6 +101,7 @@ const Footer = () => {
                 style={{
                   color: isHovered === item.id ? `${item.color}` : "#2563eb",
                   transition: "color 0.3s ease",
+                  opacity: isHovered === item.id ? 1 : 0.65,
                 }}
               >
                 {item.icon}
@@ -104,7 +109,11 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        <div className={`h-2/6 flex flex-col justify-center items-center gap-5 ${darkMode && "text-slate-400"}`}>
+        <div
+          className={`h-2/6 flex flex-col justify-center items-center gap-5 ${
+            darkMode && "text-slate-400"
+          }`}
+        >
           <div className="flex gap-3">
             {[
               "Legal terms",

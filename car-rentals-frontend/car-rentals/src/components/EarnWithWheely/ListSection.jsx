@@ -53,7 +53,7 @@ const ListSection = () => {
         </div>
         <div className="w-3/5 max-md:w-full p-2 max-md:p-5 text-slate-200 space-y-2 max-md:flex flex-col max-md:items-center">
           <h1 className="text-4xl font-bold">
-            Earn with <span className="text-5xl text-blue-400">Wheely</span>
+            Earn with <span className="text-5xl gradient-text">Wheely</span>
           </h1>
           <p className="text-sm max-md:text-center opacity-75">
             Got a car that’s sitting idle? Turn it into a source of income with

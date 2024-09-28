@@ -11,7 +11,7 @@ import { useMyAppContext } from "../../context/myAppContext";
 
 const Signup = () => {
   const navigate = useNavigate();
-  const { setIsAuthenticated, setUserProfile, googleAuthIn } =
+  const { setIsAuthenticated, setUserProfile, googleAuthIn, darkMode } =
     useMyAppContext();
   const db_url = import.meta.env.VITE_DB_URL;
   const [isEmailReg, setIsEmailReg] = useState(false);
@@ -52,7 +52,7 @@ const Signup = () => {
     }
   };
   return (
-    <div className="p-4 flex flex-col items-center justify-center w-full gap-5">
+    <div className="px-10 py-4 flex flex-col items-center justify-center w-full gap-5">
       <h1 className="text-2xl font-bold text-blue-600">
         Create your Wheely account
       </h1>
@@ -92,7 +92,7 @@ const Signup = () => {
           </Link>
         ))}
       </div>
-      <p className="text-sm opacity-75">or</p>
+      <p className={`text-sm opacity-75 ${darkMode && "text-slate-300"}`}>or</p>
       {!isEmailReg ? (
         <div
           className="flex gap-4 items-center justify-center rounded-lg text-xl border-4 border-slate-400 p-3 w-full text-opacity-75 text-gray-950 font-bold bg-slate-200 cursor-pointer"
@@ -102,7 +102,9 @@ const Signup = () => {
         </div>
       ) : (
         <form
-          className="w-full flex flex-col gap-3 bg-slate-300 rounded-lg p-4"
+          className={`w-full flex flex-col gap-3 ${
+            darkMode ? "bg-gray-700" : "bg-slate-400"
+          } rounded-lg p-4`}
           onSubmit={handleSubmit}
         >
           <input
@@ -111,7 +113,9 @@ const Signup = () => {
             value={registerData.name}
             placeholder="Name"
             onChange={handleChange}
-            className="outline-none p-3 border-b-2 border-b-blue-400"
+            className={`outline-none p-3 border-b-2 border-b-blue-400 ${
+              darkMode && "rounded-md bg-slate-500 bg-opacity-80"
+            }`}
           />
           <input
             type="email"
@@ -119,7 +123,9 @@ const Signup = () => {
             value={registerData.email}
             placeholder="Email"
             onChange={handleChange}
-            className="outline-none p-3 border-b-2 border-b-blue-400"
+            className={`outline-none p-3 border-b-2 border-b-blue-400 ${
+              darkMode && "rounded-md bg-slate-500  bg-opacity-80"
+            }`}
           />
           <input
             type="password"
@@ -127,21 +133,27 @@ const Signup = () => {
             value={registerData.password}
             placeholder="Password"
             onChange={handleChange}
-            className="outline-none p-3 border-b-2 border-b-blue-400"
+            className={`outline-none p-3 border-b-2 border-b-blue-400 ${
+              darkMode && "rounded-md bg-slate-500  bg-opacity-80"
+            }`}
           />
           <input
             type="password"
             name="confirm-password"
             placeholder="Confirm password"
             onChange={handleChange}
-            className="outline-none p-3 border-b-2 border-b-blue-400"
+            className={`outline-none p-3 border-b-2 border-b-blue-400 ${
+              darkMode && "rounded-md bg-slate-500  bg-opacity-80"
+            }`}
           />
           <div className="w-full flex gap-2">
             <select
               name="role"
               value={registerData.role}
               onChange={handleChange}
-              className="w-1/3 flex text-center font-bold"
+              className={`w-1/3 flex text-center font-bold ${
+                darkMode && "rounded-md bg-slate-500  bg-opacity-80"
+              }`}
             >
               <option value="renter">Renter</option>
               <option value="owner">Owner</option>
@@ -152,12 +164,14 @@ const Signup = () => {
               value={registerData.phone}
               placeholder="Phone Number"
               onChange={handleChange}
-              className="outline-none p-3 border-b-2 border-b-blue-400 w-2/3"
+              className={`outline-none p-3 border-b-2 border-b-blue-400 ${
+                darkMode && "rounded-md bg-slate-500 bg-opacity-80"
+              } w-2/3`}
             />
           </div>
           <button
             type="submit"
-            className="p-3 rounded-lg bg-blue-400 font-bold mt-4"
+            className="p-3 rounded-lg bg-blue-500 font-bold mt-4"
           >
             Sign Up
           </button>

@@ -1,31 +1,46 @@
 import React from "react";
 
-import authImg from "../../../assets/authImgs/login.jpg";
+import authImg from "../../../assets/authImgs/front.jpg";
 
 import { Link, Outlet, NavLink } from "react-router-dom";
 
+import { useMyAppContext } from "../../../context/myAppContext";
+
 const Auth = () => {
+  const { darkMode } = useMyAppContext();
   return (
-    <div className=" p-5 flex justify-center items-center">
-      <div className="h-full w-11/12 bg-slate-50 flex rounded-xl shadow-2xl shadow-gray-500">
-        <div className="w-1/2 p-5">
-          <div className="w-full h-full flex flex-col items-center justify-center p-4 gap-2">
-            <div className="w-full">
-              <Link
-                to="../"
-                className="w-fit p-2 shadow-xl shadow-slate-300 rounded-lg flex items-start"
-              >
-                Wheely
-              </Link>
-            </div>
-            <div className="w-5/6 flex items-center justify-center text-center">
+    <div className="flex justify-center items-center relative">
+      <div
+        className={`h-full w-full ${
+          darkMode ? "bg-gray-950" : "bg-slate-200"
+        } flex`}
+      >
+        <div className="w-[55%] p-12 space-y-10">
+          <div className="w-full">
+            <Link
+              to="../"
+              className="w-fit p-2 m-4 gradient-text rounded-lg flex items-start absolute top-0 left-0"
+            >
+              Wheely
+            </Link>
+          </div>
+          <div
+            className={`w-full h-full flex flex-col items-center justify-center gap-2 ${
+              darkMode && "bg-gray-900 rounded-xl"
+            }`}
+          >
+            <div
+              className={`w-5/6 flex items-center justify-center text-center ${
+                darkMode && "text-slate-400"
+              }`}
+            >
               <NavLink
                 to=""
                 end
                 className={({ isActive }) =>
                   isActive
                     ? "w-1/2 p-5 border-b-2 border-b-blue-500 hover:bg-slate-500 hover:bg-opacity-10"
-                    : "w-1/2 p-5 border-b hover:bg-slate-500 hover:bg-opacity-10"
+                    : `w-1/2 p-5 border-b border-slate-500 border-opacity-40 hover:bg-slate-500 hover:bg-opacity-10`
                 }
               >
                 Log In
@@ -36,7 +51,7 @@ const Auth = () => {
                 className={({ isActive }) =>
                   isActive
                     ? "w-1/2 p-5 border-b-2 border-b-blue-500 hover:bg-slate-500 hover:bg-opacity-10"
-                    : "w-1/2 p-5 border-b hover:bg-slate-500 hover:bg-opacity-10"
+                    : `w-1/2 p-5 border-b border-slate-500 border-opacity-40 hover:bg-slate-500 hover:bg-opacity-10`
                 }
               >
                 Sign Up
@@ -45,12 +60,13 @@ const Auth = () => {
             <Outlet />
           </div>
         </div>
-        <div className="w-1/2 h-dvl bg-slate-500 rounded-r-xl">
+        <div className="w-[45%] h-dvl bg-slate-500 rounded-r-xl relative">
           <img
             src={authImg}
             alt=""
-            className=" w-full h-full object-cover rounded-r-lg"
+            className=" w-full h-full opacity-95 object-cover rounded-r-lg"
           />
+          <div className="w-full h-full bg-black bg-opacity-30 absolute inset-0" />
         </div>
       </div>
     </div>

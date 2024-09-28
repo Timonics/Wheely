@@ -28,3 +28,10 @@ body {
  */  overflow: hidden;
   clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
 }
+
+.gradient-text {
+  background: linear-gradient(to right, #9ac7ff, #153db3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

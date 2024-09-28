@@ -14,7 +14,7 @@ const Hero = () => {
             }`}
           >
             Welcome to{" "}
-            <span className="text-blue-400 text-6xl max-md:text-5xl">
+            <span className="gradient-text text-6xl max-md:text-5xl">
               Wheely
             </span>
           </h1>
