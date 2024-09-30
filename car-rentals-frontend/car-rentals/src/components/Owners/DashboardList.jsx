@@ -57,9 +57,9 @@ const DashboardList = () => {
         </NavLink>
       </div>
       <div
-        className={`h-[450px] ${
+        className={`${
           darkMode ? "bg-gray-800" : "bg-slate-200"
-        } rounded-lg my-5 mx-8`}
+        } rounded-xl my-5 mx-8`}
       >
         <Outlet />
       </div>

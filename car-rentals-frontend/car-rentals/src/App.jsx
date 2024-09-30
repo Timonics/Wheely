@@ -16,21 +16,32 @@ import MyEarnings from "./components/Owners/MyEarnings";
 import Payout from "./components/Owners/Payout";
 import AdminPanel from "./components/Admin/AdminPanel";
 import AdminLogin from "./components/Admin/AdminLogin";
+import AdminLoginError from "./components/Admin/AdminLoginError";
 import Users from "./components/Admin/admin-components/Users";
 import Vehicles from "./components/Admin/admin-components/Vehicles";
 import Roles from "./components/Admin/admin-components/Roles";
 import Bookings from "./components/Admin/admin-components/Bookings";
 import Settings from "./components/Admin/admin-components/Settings";
 import Profile from "./components/Admin/admin-components/Profile";
+import AddUser from "./components/Admin/admin-components/AddUser";
+import AllUsers from "./components/Admin/admin-components/AllUsers";
+import UpdateUser from "./components/Admin/admin-components/UpdateUser";
+import DeleteUser from "./components/Admin/admin-components/DeleteUser";
 
 const App = () => {
   return (
     <Routes>
       <Route path="admin-login" element={<AdminLogin />} />
+      <Route path="adminlog-error" element={<AdminLoginError />} />
       <Route path="admin-panel/:adminID" element={<AdminPanel />}>
-        <Route path="users" element={<Users />} />
+        <Route path="users" element={<Users />}>
+          <Route index element={<AllUsers />} />
+          <Route path="add-user" element={<AddUser />} />
+          <Route path="update-user/:userID" element={<UpdateUser />} />
+          <Route path="delete-user/:userID" element={<DeleteUser />} />
+        </Route>
         <Route path="vehicles" element={<Vehicles />} />
-        <Route path="user-roles" element={<Roles />} />
+        <Route path="roles" element={<Roles />} />
         <Route path="bookings" element={<Bookings />} />
         <Route path="settings" element={<Settings />} />
         <Route path="profile" element={<Profile />} />

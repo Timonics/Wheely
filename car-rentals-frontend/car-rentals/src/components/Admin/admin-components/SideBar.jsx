@@ -1,18 +1,20 @@
 import React from "react";
 
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 
 const SideBar = () => {
+  const path = useLocation();
+  const isSideBarActive = Boolean(path.pathname.split("/")[3]);
+
   return (
     <>
-      <div className="bg-slate-900 w-1/4 flex flex-col gap-3 text-slate-300 py-4 overflow-x-auto no-scrollbar relative rounded-l-lg">
+      <div className="bg-slate-800 w-1/4 flex flex-col gap-3 text-slate-300 py-4 overflow-auto no-scrollbar relative text-xs">
         <NavLink
-          end
           to="users"
           className={({ isActive }) =>
             isActive
               ? "transition scale-110 ease-in-out duration-1000 bg-blue-950 text-center p-3"
-              : "bg-gray-700 transition ease-in-out mx-4 duration-500 hover:bg-gray-800 p-3 text-center"
+              : "bg-gray-700 transition ease-in-out mx-4 duration-500 hover:bg-gray-500 p-3 text-center"
           }
         >
           Users
@@ -22,17 +24,17 @@ const SideBar = () => {
           className={({ isActive }) =>
             isActive
               ? "transition scale-110 ease-in-out duration-1000 bg-blue-950 text-center p-3"
-              : "bg-gray-700 transition ease-in-out mx-4 duration-500 hover:bg-gray-800 p-3 text-center"
+              : "bg-gray-700 transition ease-in-out mx-4 duration-500 hover:bg-gray-500 p-3 text-center"
           }
         >
           Vehicles
         </NavLink>
         <NavLink
-          to="user-roles"
+          to="roles"
           className={({ isActive }) =>
             isActive
               ? "transition scale-110 ease-in-out duration-1000 bg-blue-950 text-center p-3"
-              : "bg-gray-700 transition ease-in-out mx-4 duration-500 hover:bg-gray-800 p-3 text-center"
+              : "bg-gray-700 transition ease-in-out mx-4 duration-500 hover:bg-gray-500 p-3 text-center"
           }
         >
           Roles
@@ -42,7 +44,7 @@ const SideBar = () => {
           className={({ isActive }) =>
             isActive
               ? "transition scale-110 ease-in-out duration-1000 bg-blue-950 text-center p-3"
-              : "bg-gray-700 transition ease-in-out mx-4 duration-500 hover:bg-gray-800 p-3 text-center"
+              : "bg-gray-700 transition ease-in-out mx-4 duration-500 hover:bg-gray-500 p-3 text-center"
           }
         >
           Bookings
@@ -53,7 +55,7 @@ const SideBar = () => {
             className={({ isActive }) =>
               isActive
                 ? "transition mx-4 rounded-lg ease-in-out duration-500 bg-blue-400 text-center p-3"
-                : "bg-gray-700 transition rounded-lg ease-in-out mx-4 duration-500 hover:bg-gray-800 p-3 text-center"
+                : "bg-gray-700 transition rounded-lg ease-in-out mx-4 duration-500 hover:bg-gray-500 p-3 text-center"
             }
           >
             Settings
@@ -63,15 +65,39 @@ const SideBar = () => {
             className={({ isActive }) =>
               isActive
                 ? "transition mx-4 rounded-lg ease-in-out duration-500 bg-blue-400 text-center p-3"
-                : "bg-gray-700 transition rounded-lg ease-in-out mx-4 duration-500 hover:bg-gray-800 p-3 text-center"
+                : "bg-gray-700 transition rounded-lg ease-in-out mx-4 duration-500 hover:bg-gray-500 p-3 text-center"
             }
           >
             Admin Profile
           </NavLink>
         </div>
       </div>
-      <div className="w-3/4 bg-gray-700 rounded-r-lg">
-        <Outlet />
+      <div className="w-3/4 bg-gray-700">
+        {isSideBarActive ? (
+          <Outlet />
+        ) : (
+          <div className="h-full flex flex-col justify-center items-center text-center  font-bold  gap-7">
+            <h1 className="text-blue-400 text-3xl">
+              <span className="gradient-text text-5xl">Central hub</span> for
+              overseeing the platform and maintaining seemless operations and
+              oversight.
+            </h1>
+            <div className="flex gap-5">
+              <Link
+                to="profile"
+                className="p-2 bg-blue-950 shadow-xl text-blue-400 w-[100px] rounded-md shadow-slate-900"
+              >
+                Profile
+              </Link>
+              <Link
+                to="settings"
+                className="p-2 bg-blue-950 shadow-xl text-blue-400 w-[100px] rounded-md shadow-slate-900"
+              >
+                Settings
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

@@ -5,8 +5,8 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const cors = require("cors");
 const corsOption = require("./config/corsOption");
-const authJwt = require('./helpers/jwt');
-const errorHandler = require('./helpers/errorHandler');
+const authJwt = require("./helpers/jwt");
+const errorHandler = require("./helpers/errorHandler");
 
 require("dotenv").config();
 const PORT = process.env.PORT;
@@ -16,8 +16,8 @@ const api = process.env.API;
 app.use(cors(corsOption));
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(authJwt())
-app.use(errorHandler)
+app.use(authJwt());
+app.use(errorHandler);
 
 const carRouter = require("./routes/cars");
 const bookingRouter = require("./routes/bookings");
@@ -33,7 +33,7 @@ app.use(`${api}users`, userRouter);
 mongoose
   .connect(DB_URI)
   .then(() => console.log("Successfully connected to DB"))
-  .catch(() => console.log("Error connecting to DB"));
+  .catch((error) => console.log("Error connecting to DB", error));
 
 app.listen(PORT, () => {
   console.log(`Server listening at PORT: ${PORT}`);

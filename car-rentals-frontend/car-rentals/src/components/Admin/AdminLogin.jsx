@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
-  const { setUserProfile } = useMyAppContext();
+  const { setIsAuthenticated, setUserProfile, userProfile } = useMyAppContext();
   const db_url = import.meta.env.VITE_DB_URL;
 
   const [adminData, setAdminData] = useState({
@@ -23,22 +23,34 @@ const AdminLogin = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await axios.post(`${db_url}users/login`, adminData);
+    try {
+      const response = await axios.post(`${db_url}users/login`, adminData);
 
-    const adminId = response.data.id;
-    const token = response.data.token;
+      const adminId = response.data.id;
+      const token = response.data.token;
 
-    const adminResData = await axios.get(`${db_url}users/${adminId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: "application/json",
-      },
-    });
+      const adminResData = await axios.get(`${db_url}users/${adminId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: "application/json",
+        },
+      });
 
-    setIsAuthenticated(true);
-    setUserProfile(adminResData.data);
-    console.log(adminResData);
-    /* navigate(`/admin-panel/${}`) */
+      const role = adminResData.data.role;
+
+      if (role !== "admin") {
+        setIsAuthenticated(false);
+        setUserProfile(null);
+        navigate("/adminlog-error");
+      }
+
+      setIsAuthenticated(true);
+      setUserProfile(token);
+      navigate(`/admin-panel/${adminId}`);
+    } catch (err) {
+      navigate("/adminlog-error");
+      console.log("Error logging in", err.response);
+    }
   };
 
   return (
