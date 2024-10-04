@@ -113,6 +113,16 @@ const userLogin = async (req, res) => {
   }
 };
 
+const userLogout = async (req, res) => {
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "Strict",
+  });
+
+  return res.status(200).send({ message: "Logout successful" });
+};
+
 module.exports = {
   getAllUsers,
   createAUser,
@@ -120,4 +130,5 @@ module.exports = {
   deleteAUser,
   updateAUser,
   userLogin,
+  userLogout,
 };

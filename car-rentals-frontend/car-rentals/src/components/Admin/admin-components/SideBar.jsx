@@ -7,8 +7,8 @@ const SideBar = () => {
   const isSideBarActive = Boolean(path.pathname.split("/")[3]);
 
   return (
-    <>
-      <div className="bg-slate-800 w-1/4 flex flex-col gap-3 text-slate-300 py-4 overflow-auto no-scrollbar relative text-xs">
+    <div className="flex w-full h-[470px]">
+      <div className="bg-slate-800 w-1/4 flex flex-col gap-3 text-slate-300 py-4 overflow-x-auto no-scrollbar relative text-xs ">
         <NavLink
           to="users"
           className={({ isActive }) =>
@@ -99,7 +99,7 @@ const SideBar = () => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -36,8 +36,8 @@ const Features = () => {
         <h1 className="font-bold text-blue-950 text-lg">{feature.title}</h1>
         <p
           className={`text-sm max-md:text-xs  ${
-            darkMode ? "opacity-85" : "opacity-60"
-          }`}
+            darkMode ? "opacity-85" : "opacity-90"
+          } font-montserrat`}
         >
           {feature.desc}
         </p>
@@ -59,7 +59,7 @@ const Features = () => {
               <span className="text-blue-400 font-bold">Wheely</span>
             </h1>
             <div className="lg:hidden md:hidden w-full h-dvh bg-slate-500 rounded-lg flex items-center justify-center"></div>
-            <p className={`text-sm ${darkMode ? "opacity-95" : "opacity-60"}`}>
+            <p className={`text-sm font-montserrat ${darkMode ? "opacity-95" : "opacity-90"}`}>
               Wheely is designed to provide you with a seamless car rental
               experience, whether you're looking to rent a car or earn by
               sharing your own.

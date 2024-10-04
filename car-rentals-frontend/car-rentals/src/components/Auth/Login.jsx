@@ -1,18 +1,26 @@
 import React, { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 import { FaFacebook } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 import axios from "axios";
 import { useMyAppContext } from "../../context/myAppContext";
+import Loading from "../Load/Loading";
 
 const Login = () => {
   const db_url = import.meta.env.VITE_DB_URL;
   const navigate = useNavigate();
-  const { googleAuthIn, setIsAuthenticated, setUserProfile, darkMode } =
-    useMyAppContext();
+  const {
+    googleAuthIn,
+    setIsAuthenticated,
+    setUserProfile,
+    darkMode,
+    setIsLoading,
+    isLoading,
+  } = useMyAppContext();
 
   const [loginData, setLoginData] = useState({
     email: "",
@@ -29,6 +37,7 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
     try {
       const response = await axios.post(`${db_url}users/login`, loginData);
 
@@ -46,12 +55,15 @@ const Login = () => {
       setUserProfile(userData.data);
       navigate("/");
     } catch (error) {
-      console.error("Error registering user:", error.response.data);
+      console.error("Error logging in:", error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="py-4 flex flex-col items-center justify-center w-5/6 gap-5">
+      {isLoading && <Loading />}
       <h1
         className={`text-2xl font-bold ${
           darkMode ? "text-blue-300" : "text-blue-600"
@@ -82,7 +94,7 @@ const Login = () => {
         />
         <button
           type="submit"
-          className="p-3 mt-5 rounded-lg bg-blue-400 font-bold"
+          className="p-3 mt-5 rounded-lg transition ease-in-out duration-500 hover:bg-blue-950 hover:text-slate-300 bg-blue-400 font-bold"
         >
           Log In
         </button>

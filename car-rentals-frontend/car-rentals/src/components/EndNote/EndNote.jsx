@@ -11,7 +11,7 @@ const EndNote = () => {
     >
       <div className="space-y-3">
         <h1 className="font-semibold">Rent the Perfect Vehicle with Wheely</h1>
-        <p className={`${darkMode && "opacity-45"} text-xs opacity-75`}>
+        <p className={`${darkMode && "opacity-45"} text-xs opacity-85 font-montserrat`}>
           There are countless reasons you may need to rent a car. Whether you’re
           moving and need a spacious cargo van, planning a weekend getaway with
           a convertible for a scenic drive, or heading out on a business trip
@@ -21,7 +21,7 @@ const EndNote = () => {
       </div>
       <div className="space-y-3">
         <h1 className="font-semibold">Why Choose Wheely?</h1>
-        <p className={`${darkMode && "opacity-45"} text-xs opacity-75`}>
+        <p className={`${darkMode && "opacity-45"} text-xs opacity-85 font-montserrat`}>
           Wheely is a convenient, affordable, and eco-friendly alternative to
           traditional car rentals. By choosing Wheely, you’re sharing vehicles
           from local owners when they aren’t in use, helping reduce the number
@@ -43,7 +43,7 @@ const EndNote = () => {
         <h1 className="font-semibold">
           Types of Cars You Can Rent with Wheely
         </h1>
-        <p className={`${darkMode && "opacity-45"} text-xs opacity-75`}>
+        <p className={`${darkMode && "opacity-45"} text-xs opacity-85 font-montserrat`}>
           Choose between different vehicle categories like SUVs, Sedans, Coupes,
           Minivans, or Pickup Trucks. Whether you're looking for a rugged Jeep
           for an adventure or a sleek sedan for a city drive, we’ve got options.

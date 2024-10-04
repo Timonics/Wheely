@@ -7,6 +7,7 @@ const cors = require("cors");
 const corsOption = require("./config/corsOption");
 const authJwt = require("./helpers/jwt");
 const errorHandler = require("./helpers/errorHandler");
+const cookieParser = require('cookie-parser');
 
 require("dotenv").config();
 const PORT = process.env.PORT;
@@ -15,6 +16,7 @@ const api = process.env.API;
 
 app.use(cors(corsOption));
 app.use(express.json());
+app.use(cookieParser())
 app.use(morgan("dev"));
 app.use(authJwt());
 app.use(errorHandler);

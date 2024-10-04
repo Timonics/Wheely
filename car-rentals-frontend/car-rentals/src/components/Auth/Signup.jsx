@@ -1,17 +1,14 @@
 import React, { useState } from "react";
-
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-
 import { IoMailOutline } from "react-icons/io5";
-import { FaFacebook } from "react-icons/fa";
-import { FaGoogle } from "react-icons/fa";
-import { FaApple } from "react-icons/fa";
+import { FaFacebook, FaGoogle, FaApple } from "react-icons/fa";
 import { useMyAppContext } from "../../context/myAppContext";
+import Loading from "../Load/Loading";
 
 const Signup = () => {
   const navigate = useNavigate();
-  const { setIsAuthenticated, setUserProfile, googleAuthIn, darkMode } =
+  const { setIsAuthenticated, setUserProfile, googleAuthIn, darkMode, setIsLoading, isLoading } =
     useMyAppContext();
   const db_url = import.meta.env.VITE_DB_URL;
   const [isEmailReg, setIsEmailReg] = useState(false);
@@ -21,11 +18,12 @@ const Signup = () => {
   };
 
   const [registerData, setRegisterData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
     role: "renter",
-    phone: 0,
+    phone: "",
   });
 
   const handleChange = (event) => {
@@ -38,21 +36,31 @@ const Signup = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    try {
-      const response = await axios.post(
-        `${db_url}users/register`,
-        registerData
-      );
+    setIsLoading(true)
+    const fullName = `${registerData.firstName} ${registerData.lastName}`;
 
+    const finalData = {
+      ...registerData,
+      name: fullName,
+    };
+
+    try {
+      const response = await axios.post(`${db_url}users/register`, finalData);
+
+      setIsLoading(false)
       setIsAuthenticated(true);
       setUserProfile(response.data);
       navigate("/");
     } catch (error) {
       console.error("Error registering user:", error.response.data);
+    }finally {
+      setIsLoading(false)
     }
   };
+
   return (
     <div className="px-10 py-4 flex flex-col items-center justify-center w-full gap-5">
+      {isLoading && <Loading />}
       <h1 className="text-2xl font-bold text-blue-600">
         Create your Wheely account
       </h1>
@@ -78,13 +86,12 @@ const Signup = () => {
           <Link
             key={item.id}
             to=""
-            style={{
-              backgroundColor: item.color,
-            }}
+            style={{ backgroundColor: item.color }}
             className={`flex p-4 w-full items-center justify-center gap-4 rounded-lg ${
-              item.id == 0 && "border-4 border-slate-300 bg-white"
-            } ${item.id == 1 && "bg-blue-900 opacity-95 text-slate-200"}
-             ${item.id == 2 && "bg-black opacity-90 text-slate-200"}`}
+              item.id === 0 && "border-4 border-slate-300 bg-white"
+            } ${item.id === 1 && "bg-blue-900 opacity-95 text-slate-200"} ${
+              item.id === 2 && "bg-black opacity-90 text-slate-200"
+            }`}
             onClick={item.handleClick}
           >
             {item.icon}
@@ -109,9 +116,19 @@ const Signup = () => {
         >
           <input
             type="text"
-            name="name"
-            value={registerData.name}
-            placeholder="Name"
+            name="firstName"
+            value={registerData.firstName}
+            placeholder="First Name"
+            onChange={handleChange}
+            className={`outline-none p-3 border-b-2 border-b-blue-400 ${
+              darkMode && "rounded-md bg-slate-500 bg-opacity-80"
+            }`}
+          />
+          <input
+            type="text"
+            name="lastName"
+            value={registerData.lastName}
+            placeholder="Last Name"
             onChange={handleChange}
             className={`outline-none p-3 border-b-2 border-b-blue-400 ${
               darkMode && "rounded-md bg-slate-500 bg-opacity-80"

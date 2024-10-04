@@ -6,7 +6,7 @@ const Hero = () => {
   const { darkMode } = useMyAppContext();
   return (
     <div className="h-full flex">
-      <div className="w-3/5 p-8 flex flex-col gap-4 h-full space-y-3">
+      <div className="w-3/5 p-8 flex flex-col gap-4 h-full space-y-3 justify-center pb-48">
         <div className="space-y-2">
           <h1
             className={`text-5xl font-bold text-gray-900 ${
@@ -27,7 +27,7 @@ const Hero = () => {
         <p
           className={`${
             darkMode && "text-slate-400"
-          } text-sm`}
+          } text-sm font-montserrat`}
         >
           Your go-to platform for renting cars or sharing yours. Whether you're
           looking for a ride or want to earn by renting out your car, Wheely has

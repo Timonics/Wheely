@@ -13,6 +13,9 @@ export default {
         "max-lg": { max: "1025px" },
       },
       colors: {},
+      fontFamily: {
+        montserrat: ["Montserrat", "sans-serif"]
+      }
     },
   },
   plugins: [],

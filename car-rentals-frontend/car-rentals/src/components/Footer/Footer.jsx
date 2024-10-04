@@ -18,8 +18,8 @@ const Footer = () => {
       <div className=" h-full mt-4 flex flex-col">
         <div
           className={`${
-            darkMode && "bg-slate-300"
-          } h-5/6 bg-slate-100 rounded-t-3xl p-10 space-y-12 text-blue-600`}
+            darkMode ? "bg-slate-400" : "bg-slate-100"
+          } h-5/6 rounded-t-3xl p-10 space-y-12 text-blue-600`}
         >
           <div className="flex justify-between ">
             <div className="p-2 rounded-lg bg-gray-950 shadow-lg shadow-gray-400">
@@ -31,7 +31,7 @@ const Footer = () => {
             <div className="w-1/2 space-y-2">
               <h1 className="font-bold">About Us</h1>
               <div className="border-t border-gray-400 opacity-30"></div>
-              <p className="text-sm opacity-75">
+              <p className="text-sm opacity-75 font-montserrat">
                 Wheely makes car sharing simple and seamless through
                 cutting-edge technology. We provide an entirely contactless
                 experience—no standing in line at a rental counter, no tedious
@@ -53,7 +53,7 @@ const Footer = () => {
                     "Contact",
                     "Blog",
                   ].map((items, i) => (
-                    <li key={i} className="text-xs">
+                    <li key={i} className="text-xs font-montserrat">
                       {items}
                     </li>
                   ))}
@@ -65,7 +65,7 @@ const Footer = () => {
                 <ul className="space-y-3">
                   {["Owners resourses", "Pros", "Help center"].map(
                     (item, i) => (
-                      <li key={i} className="text-xs">
+                      <li key={i} className="text-xs font-montserrat">
                         {item}
                       </li>
                     )
@@ -77,7 +77,7 @@ const Footer = () => {
                 <div className="border-t border-gray-400 opacity-30"></div>
                 <ul className="space-y-3">
                   {["Partner with us", "Drive with inDrive"].map((item, i) => (
-                    <li key={i} className="text-xs">
+                    <li key={i} className="text-xs font-montserrat">
                       {item}
                     </li>
                   ))}

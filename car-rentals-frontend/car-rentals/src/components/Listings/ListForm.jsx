@@ -50,11 +50,11 @@ const ListForm = () => {
             } mt-20`}
           >
             <h1
-              className={`text-3xl font-black ${darkMode && "text-blue-400"}`}
+              className={`text-3xl font-black  ${darkMode && "text-blue-400"}`}
             >
               Earn extra income by renting your car with locals
             </h1>
-            <p className={`text-sm ${darkMode ? "opacity-40" : "opacity-75"}`}>
+            <p className={`text-sm font-montserrat ${darkMode ? "opacity-40" : "opacity-75"}`}>
               Have a car sitting idle? Turn it into an earning opportunity by
               listing it on Wheely! Renting out your car is easy, safe, and
               convenient.

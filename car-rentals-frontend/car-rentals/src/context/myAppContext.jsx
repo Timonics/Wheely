@@ -11,6 +11,7 @@ const MyAppProvider = ({ children }) => {
   const [tokenResponse, setTokenResponse] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
+  const [isLoading, setIsLoading] = useState(false)
 
   const googleAuthIn = useGoogleLogin({
     onSuccess: (token) => {
@@ -30,6 +31,7 @@ const MyAppProvider = ({ children }) => {
   };
 
   const googleLoginData = async () => {
+    setIsLoading(true)
     try {
       if (tokenResponse) {
         const loginDataResponse = await axios.get(
@@ -46,6 +48,8 @@ const MyAppProvider = ({ children }) => {
       }
     } catch (err) {
       console.error("Error", err);
+    } finally {
+      setIsLoading(false)
     }
   };
 
@@ -66,6 +70,8 @@ const MyAppProvider = ({ children }) => {
     googleSignOut,
     userProfile,
     setUserProfile,
+    isLoading,
+    setIsLoading
   };
 
   return (

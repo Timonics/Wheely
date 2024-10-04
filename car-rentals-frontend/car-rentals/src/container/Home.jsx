@@ -14,17 +14,17 @@ const Home = () => {
   const { darkMode } = useMyAppContext();
   return (
     <div className={`${darkMode && "bg-slate-800"}`}>
-      <div className={`flex flex-col h-screen`}>
+      <div className={`flex flex-col h-[700px]`}>
         <div
           className={`${
-            darkMode ? "bg-slate-950 text-slate-300" : "text-slate-700 bg-slate-200"
+            darkMode ? "bg-slate-950 text-slate-300" : "text-slate-700 bg-slate-100"
           } p-4`}
         >
           <Nav />
         </div>
         <div
           className={`p-4 h-[80%] ${
-            darkMode ? "bg-slate-950 shadow-2xl" : "bg-slate-200 shadow-lg"
+            darkMode ? "bg-slate-950 shadow-2xl" : "bg-slate-100 shadow-lg"
           } `}
         >
           <Hero />

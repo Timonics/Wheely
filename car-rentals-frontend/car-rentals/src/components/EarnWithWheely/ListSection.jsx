@@ -37,7 +37,7 @@ const ListSection = () => {
     >
       {liststep.icon}
       <h1 className="font-bold">{liststep.step}</h1>
-      <h1 className="text-sm text-center opacity-50">{liststep.desc}</h1>
+      <h1 className="text-sm text-center opacity-50 font-montserrat">{liststep.desc}</h1>
     </li>
   ));
 
@@ -52,17 +52,17 @@ const ListSection = () => {
           />
         </div>
         <div className="w-3/5 max-md:w-full p-2 max-md:p-5 text-slate-200 space-y-2 max-md:flex flex-col max-md:items-center">
-          <h1 className="text-4xl font-bold">
-            Earn with <span className="text-5xl gradient-text">Wheely</span>
+          <h1 className="text-5xl font-bold">
+            Earn with <span className="text-6xl gradient-text">Wheely</span>
           </h1>
-          <p className="text-sm max-md:text-center opacity-75">
+          <p className="text-sm max-md:text-center opacity-75 font-montserrat">
             Got a car that’s sitting idle? Turn it into a source of income with
             Wheely! Join our trusted community of car owners and start earning
             by sharing your vehicle. It’s simple, secure, and flexible.
           </p>
           <ul className="flex p-4 gap-4">{stepsElements}</ul>
           <div className="flex flex-col items-center gap-2 border-4 w-fit p-3 rounded-lg border-blue-400 border-opacity-75">
-            <p>Ready to get started?</p>
+            <p className="opacity-80 font-montserrat">Ready to get started?</p>
             <Link
               to="rent-your-car"
               className="flex items-center gap-3 py-2 px-4 rounded-full bg-blue-400 bg-opacity-75 w-fit text-gray-950 font-black transition duration-500 ease-in-out hover:bg-slate-900 hover:text-blue-400"
@@ -70,7 +70,7 @@ const ListSection = () => {
               List your car today <FaRegArrowAltCircleRight />
             </Link>
           </div>
-          <p>Join Wheely and turn your car into a profitable asset.</p>
+          <p className="opacity-50">Join Wheely and turn your car into a profitable asset.</p>
         </div>
       </div>
     </div> 

@@ -17,7 +17,7 @@ const Users = () => {
         >
           All Users
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to="add-user"
           className={({ isActive }) =>
             isActive
@@ -26,7 +26,7 @@ const Users = () => {
           }
         >
           Add New User
-        </NavLink>
+        </NavLink> */}
         <NavLink
           to="update-user/1"
           className={({ isActive }) =>

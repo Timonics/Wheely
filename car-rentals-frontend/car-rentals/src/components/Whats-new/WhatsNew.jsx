@@ -62,7 +62,7 @@ const WhatsNew = () => {
             {String.fromCodePoint(item.icon)}
             <h1 className="font-bold text-lg">{item.title}</h1>
           </div>
-          <p className="text-[11px] opacity-50">{item.desc}</p>
+          <p className="text-[11px] opacity-50 font-montserrat">{item.desc}</p>
         </div>
       </Link>
     ))

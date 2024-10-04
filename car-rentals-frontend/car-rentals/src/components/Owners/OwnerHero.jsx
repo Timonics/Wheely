@@ -24,7 +24,7 @@ const OwnerHero = () => {
             Hide
           </button>
           <h1
-            className={`text-5xl font-bold h-[60px] flex items-center gradient-text`}
+            className={`text-5xl font-bold h-[60px] flex items-center gradient-text font-montserrat`}
           >
             Manage Your Fleet, Maximize Your Earnings
           </h1>

@@ -2,10 +2,12 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useMyAppContext } from "../../context/myAppContext";
 import { useNavigate } from "react-router-dom";
+import Loading from "../Load/Loading";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
-  const { setIsAuthenticated, setUserProfile, userProfile } = useMyAppContext();
+  const { setIsAuthenticated, setUserProfile, setIsLoading, isLoading } =
+    useMyAppContext();
   const db_url = import.meta.env.VITE_DB_URL;
 
   const [adminData, setAdminData] = useState({
@@ -23,6 +25,7 @@ const AdminLogin = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
     try {
       const response = await axios.post(`${db_url}users/login`, adminData);
 
@@ -50,11 +53,14 @@ const AdminLogin = () => {
     } catch (err) {
       navigate("/adminlog-error");
       console.log("Error logging in", err.response);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="h-screen flex flex-col items-center justify-center bg-slate-950 relative">
+      {isLoading && <Loading />}
       <h1 className="text-6xl h-[70px] font-bold gradient-text absolute top-0 left-0 m-5">
         Wheely
       </h1>

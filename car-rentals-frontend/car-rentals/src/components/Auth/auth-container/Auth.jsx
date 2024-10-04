@@ -25,8 +25,8 @@ const Auth = () => {
             </Link>
           </div>
           <div
-            className={`w-full h-full flex flex-col items-center justify-center gap-2 ${
-              darkMode && "bg-gray-900 rounded-xl"
+            className={`w-full h-full flex flex-col items-center justify-center gap-2 rounded-xl ${
+              darkMode ? "bg-gray-900" : "bg-slate-100"
             }`}
           >
             <div
@@ -60,11 +60,11 @@ const Auth = () => {
             <Outlet />
           </div>
         </div>
-        <div className="w-[45%] h-dvl bg-slate-500 rounded-r-xl relative">
+        <div className="w-[45%] relative">
           <img
             src={authImg}
             alt=""
-            className=" w-full h-full opacity-95 object-cover rounded-r-lg"
+            className=" w-full h-full object-cover"
           />
           <div className="w-full h-full bg-black bg-opacity-30 absolute inset-0" />
         </div>

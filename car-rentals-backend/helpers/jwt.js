@@ -28,7 +28,9 @@ const authJwt = () => {
         let bookingID;
         let userID;
 
-        const bookingReqInfo = req.path.match(`${api}bookings/([0-9a-fA-F]{24})`);
+        const bookingReqInfo = req.path.match(
+          `${api}bookings/([0-9a-fA-F]{24})`
+        );
         const userReqInfo = req.path.match(`${api}users/([0-9a-fA-F]{24})`);
 
         if (bookingReqInfo) bookingID = bookingReqInfo[1];
@@ -68,7 +70,11 @@ const authJwt = () => {
             }
           }
 
-          if (isAllowed && (req.method === "GET" || req.method === "PUT") && userID) {
+          if (
+            isAllowed &&
+            (req.method === "GET" || req.method === "PUT") &&
+            userID
+          ) {
             const user = await User.findById(userID);
 
             if (!user || user._id.toString() != userId) {
@@ -94,7 +100,11 @@ const authJwt = () => {
               return true;
           }
 
-          if (isAllowed && (req.method === "GET" || req.method === "PUT") && userID) {
+          if (
+            isAllowed &&
+            (req.method === "GET" || req.method === "PUT") &&
+            userID
+          ) {
             const user = await User.findById(userID);
 
             if (!user || user._id.toString() != userId) {
@@ -113,11 +123,13 @@ const authJwt = () => {
         return true;
       } catch (err) {
         console.error("Error in isRevoked function:", err);
-        throw new Error("Error in isRevoked function");
       }
     },
   }).unless({
-    path: [`${api}users/login`, `${api}users/register`],
+    path: [
+      { url: `${api}users/login`, methods: ["POST"] },
+      { url: `${api}users/register`, methods: ["POST"] },
+    ],
   });
 };
 

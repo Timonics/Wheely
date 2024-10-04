@@ -51,7 +51,7 @@ const CarTypes = () => {
             className="w-full h-full rounded-lg object-center object-cover transition ease-in-out duration-500 hover:scale-110"
           />
         </div>
-        <h1 className="text-sm font-semibold">{cartype.name}</h1>
+        <h1 className="text-sm font-semibold font-montserrat">{cartype.name}</h1>
       </Link>
     ))
   );
