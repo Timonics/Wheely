@@ -10,8 +10,8 @@ const BookingContainer = () => {
   return (
     <div className={`${darkMode && "bg-slate-800"}`}>
       <Book />
-      <InfoOnRent />
       <FeaturedCars />
+      <InfoOnRent />
       <SubFooter />
     </div>
   );

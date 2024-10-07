@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 import { useGoogleLogin, googleLogout } from "@react-oauth/google";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import RoleError from "../components/Error/RoleError";
 
 const MyAppContext = createContext();
 
@@ -11,7 +12,9 @@ const MyAppProvider = ({ children }) => {
   const [tokenResponse, setTokenResponse] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [showRoleError, setShowRoleError] = useState(false);
 
   const googleAuthIn = useGoogleLogin({
     onSuccess: (token) => {
@@ -31,7 +34,7 @@ const MyAppProvider = ({ children }) => {
   };
 
   const googleLoginData = async () => {
-    setIsLoading(true)
+    setIsLoading(true);
     try {
       if (tokenResponse) {
         const loginDataResponse = await axios.get(
@@ -49,7 +52,7 @@ const MyAppProvider = ({ children }) => {
     } catch (err) {
       console.error("Error", err);
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   };
 
@@ -71,7 +74,11 @@ const MyAppProvider = ({ children }) => {
     userProfile,
     setUserProfile,
     isLoading,
-    setIsLoading
+    setIsLoading,
+    showError,
+    setShowError,
+    showRoleError,
+    setShowRoleError,
   };
 
   return (

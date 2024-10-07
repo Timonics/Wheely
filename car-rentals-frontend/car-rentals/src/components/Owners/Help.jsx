@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Help = () => {
   return (
-    <div className="h-[300px] my-5 bg-blue-950 text-slate-300 space-y-6 flex flex-col items-center justify-center gap-7">
+    <div className="h-[300px] my-5 bg-blue-800 text-slate-300 space-y-6 flex flex-col items-center justify-center gap-7">
       <div className="text-center space-y-5">
         <h1 className="text-5xl ">Need Help?</h1>
         <p className="opacity-60">

@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import DarkMode from "../DarkMode/DarkMode";
 import { useMyAppContext } from "../../context/myAppContext";
+import NavPopOver from "./NavPopOver";
 
 const BookingNav = () => {
   const { darkMode, userProfile } = useMyAppContext();
@@ -33,13 +34,7 @@ const BookingNav = () => {
             Log In
           </Link>
         ) : (
-          <div className="flex flex-col items-center gap-1">
-            <img
-              src={userProfile.picture}
-              alt="Profile Pic"
-              className="object-cover w-9 h-9 rounded-full shadow-2xl"
-            />
-          </div>
+          <NavPopOver />
         )}
         <Link
           to="../bookings"

@@ -19,8 +19,8 @@ const Insure = () => {
             head: "A dedicated customer service team",
             desc: "Alongside the 24/7 assistance line, you can also contact our customer service team 24/7.",
           },
-        ].map((item) => (
-          <div className="space-y-5">
+        ].map((item, index) => (
+          <div key={index} className="space-y-5">
             <h1 className="text-xl font-bold">{item.head}</h1>
             <p className="text-sm opacity-50">{item.desc}</p>
           </div>

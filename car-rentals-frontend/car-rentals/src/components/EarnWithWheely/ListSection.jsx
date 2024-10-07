@@ -36,7 +36,7 @@ const ListSection = () => {
       className="flex flex-col items-center px-4 py-6 w-1/3 rounded-lg gap-2 bg-slate-900 text-blue-400 shadow-lg shadow-blue-40"
     >
       {liststep.icon}
-      <h1 className="font-bold">{liststep.step}</h1>
+      <h1 className="font-semibold">{liststep.step}</h1>
       <h1 className="text-sm text-center opacity-50 font-montserrat">{liststep.desc}</h1>
     </li>
   ));
@@ -55,7 +55,7 @@ const ListSection = () => {
           <h1 className="text-5xl font-bold">
             Earn with <span className="text-6xl gradient-text">Wheely</span>
           </h1>
-          <p className="text-sm max-md:text-center opacity-75 font-montserrat">
+          <p className="text-sm max-md:text-center opacity-65 font-montserrat font-light">
             Got a car that’s sitting idle? Turn it into a source of income with
             Wheely! Join our trusted community of car owners and start earning
             by sharing your vehicle. It’s simple, secure, and flexible.
@@ -65,7 +65,7 @@ const ListSection = () => {
             <p className="opacity-80 font-montserrat">Ready to get started?</p>
             <Link
               to="rent-your-car"
-              className="flex items-center gap-3 py-2 px-4 rounded-full bg-blue-400 bg-opacity-75 w-fit text-gray-950 font-black transition duration-500 ease-in-out hover:bg-slate-900 hover:text-blue-400"
+              className="flex items-center gap-3 py-2 px-4 rounded-full bg-blue-400 bg-opacity-75 w-fit text-gray-950 font-semibold transition duration-500 ease-in-out hover:bg-slate-900 hover:text-blue-400"
             >
               List your car today <FaRegArrowAltCircleRight />
             </Link>

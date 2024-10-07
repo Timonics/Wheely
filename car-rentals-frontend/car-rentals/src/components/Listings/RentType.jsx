@@ -35,8 +35,9 @@ const RentType = () => {
       subDescSpanUnderline: " Wheely Connect eligible zones.",
     },
   ];
-  const rentTypeElements = rentType.map((type) => (
+  const rentTypeElements = rentType.map((type, index) => (
     <div
+      key={index}
       className={`${
         darkMode && "bg-slate-950 text-blue-400"
       } w-[30%] rounded-xl bg-slate-200 bordr border-black border-opacity-20 p-8 flex flex-col justify-center items-center gap-5`}
@@ -55,7 +56,9 @@ const RentType = () => {
         <div className="p-2 rounded-full bg-blue-600">{type.rentTypeIcon}</div>
         <div className="space-y-1">
           <h3 className="text-sm font-bold">{type.rentType}</h3>
-          <p className={`${darkMode ? "opacity-90" : "opacity-75"} text-[13px]`}>
+          <p
+            className={`${darkMode ? "opacity-90" : "opacity-75"} text-[13px]`}
+          >
             {type.rentTypeDesc}
           </p>
         </div>
@@ -88,9 +91,9 @@ const RentType = () => {
   ));
   return (
     <div className="p-10 flex flex-col justify-center items-center gap-5 text-blue-950">
-      <div className={`${darkMode && "text-blue-300"} text-center`}>
-        <h2 className="text-3xl font-black">Two ways to share</h2>
-        <p className="text-sm opacity-75">
+      <div className={`${darkMode && "text-blue-300"} text-center space-y-1`}>
+        <h2 className="text-4xl font-bold">Two ways to share</h2>
+        <p className="text-sm font-light opacity-90">
           Rent when you want, at the price you want
         </p>
       </div>

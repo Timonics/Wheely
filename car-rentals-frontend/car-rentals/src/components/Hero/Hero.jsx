@@ -9,12 +9,12 @@ const Hero = () => {
       <div className="w-3/5 p-8 flex flex-col gap-4 h-full space-y-3 justify-center pb-48">
         <div className="space-y-2">
           <h1
-            className={`text-5xl font-bold text-gray-900 ${
+            className={`text-6xl font-light text-gray-900 ${
               darkMode && "text-slate-300"
             }`}
           >
             Welcome to{" "}
-            <span className="gradient-text text-6xl">
+            <span className="gradient-text text-7xl">
               Wheely
             </span>
           </h1>
@@ -43,7 +43,7 @@ const Hero = () => {
           <Link
             className={`${
               darkMode && "bg-slate-400"
-            } py-2 px-4 shadow-2xl rounded-lg bg-slate-50 font-bold`}
+            } py-2 px-4 shadow-2xl rounded-lg bg-slate-50 font-semibold`}
           >
             List your car
           </Link>

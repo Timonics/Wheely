@@ -33,9 +33,9 @@ const Features = () => {
     <li key={i} className="flex space-x-5">
       <div className="text-blue-400">{feature.icon}</div>
       <div>
-        <h1 className="font-bold text-blue-950 text-lg">{feature.title}</h1>
+        <h1 className="font-semibold text-blue-950 text-xl">{feature.title}</h1>
         <p
-          className={`text-sm max-md:text-xs  ${
+          className={`text-sm  ${
             darkMode ? "opacity-85" : "opacity-90"
           } font-montserrat`}
         >
@@ -51,15 +51,18 @@ const Features = () => {
         <div
           className={`${
             darkMode && "bg-slate-500"
-          } w-3/4 max-md:w-full h-full bg-slate-200 rounded-lg shadow-2xl p-6 text-blue-950`}
+          } w-3/4 h-full bg-slate-200 rounded-lg shadow-2xl p-6 text-blue-950`}
         >
-          <div className="w-4/5 max-md:w-full max-md:h-full h-full p-6 max-md:p-0 space-y-5">
-            <h1 className="text-3xl font-bold text-gray- max-md:text-center">
+          <div className="w-4/5 h-full p-6 space-y-5">
+            <h1 className="text-4xl font-semibold text-gray- max-md:text-center">
               Discover the Benefits of{" "}
               <span className="text-blue-400 font-bold">Wheely</span>
             </h1>
-            <div className="lg:hidden md:hidden w-full h-dvh bg-slate-500 rounded-lg flex items-center justify-center"></div>
-            <p className={`text-sm font-montserrat ${darkMode ? "opacity-95" : "opacity-90"}`}>
+             <p
+              className={`text-sm font-montserrat ${
+                darkMode ? "opacity-95" : "opacity-90"
+              }`}
+            >
               Wheely is designed to provide you with a seamless car rental
               experience, whether you're looking to rent a car or earn by
               sharing your own.
@@ -75,7 +78,7 @@ const Features = () => {
             </Link>
           </div>
         </div>
-        <div className="flex w-1/4 items-center max-md:hidden">
+        <div className="flex w-1/4 items-center ">
           <div className="w-1/3 bg-slate-500 absolute right-10 h-5/6 z-50 rounded-lg shadow-slate-950 flex items-center justify-center">
             <img
               src={featureImg}

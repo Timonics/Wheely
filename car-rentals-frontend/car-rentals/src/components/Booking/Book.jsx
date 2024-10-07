@@ -33,7 +33,7 @@ const Book = () => {
             <h1 className=" text-[45px] leading-[48px] font-bold gradient-text">
               Discover the Perfect Ride for Every Occasion with Wheely
             </h1>
-            <p className="text-[15px] leading-[25px] text-white opacity-85">
+            <p className="text-[15px] leading-[25px] text-white opacity-85 font-montserrat font-extralight">
               Whether you're planning a road trip, heading to a business
               meeting, or just need a reliable ride around town, Wheely makes it
               easy to find, book, and enjoy the perfect car. With a wide variety

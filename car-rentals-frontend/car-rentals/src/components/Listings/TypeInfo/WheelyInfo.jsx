@@ -22,8 +22,9 @@ const WheelyInfo = () => {
     },
   ];
 
-  const typeInfoElements = typeInfo.map((typeInfo) => (
+  const typeInfoElements = typeInfo.map((typeInfo, index) => (
     <div
+      key={index}
       className={`space-y-3 w-1/4 ${
         darkMode ? "text-blue-300" : "text-blue-950 "
       }`}

@@ -17,8 +17,9 @@ const ProListing = () => {
       desc: "",
     },
   ];
-  const proWithWheelyElements = options.map((option) => (
+  const proWithWheelyElements = options.map((option, index) => (
     <Link
+      key={index}
       className={`${
         darkMode ? "bg-slate-500" : "bg-slate-300"
       } w-1/2 h-full rounded-xl border-2 border-black border-opacity-20 `}

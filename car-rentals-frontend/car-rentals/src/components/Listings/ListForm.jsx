@@ -4,9 +4,15 @@ import carShopper from "../../assets/EarnWithWheely/CarShopper.avif";
 import { useMyAppContext } from "../../context/myAppContext";
 
 import BookingNav from "../Nav/BookingNav";
+import LoginError from "../Error/LoginError";
+import RoleError from "../Error/RoleError";
 
 const ListForm = () => {
-  const { darkMode } = useMyAppContext();
+  const { darkMode, isAuthenticated, userProfile, setUserProfile } =
+    useMyAppContext();
+  const [showError, setShowError] = useState(false);
+  const [showRoleError, setShowRoleError] = useState(false);
+
   const [listForm, setListForm] = useState({
     brand: "",
     model: "",
@@ -17,6 +23,27 @@ const ListForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setListForm((prevListForm) => ({ ...prevListForm, [name]: value }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+    } catch (err) {
+      console.log("Error", err);
+    }
+  };
+
+  if (userProfile) console.log(userProfile.role);
+
+  const handleFormSubmit = (event) => {
+    handleSubmit(event);
+
+    if (!isAuthenticated) {
+      setShowError(true);
+    }
+    if (userProfile && userProfile.role !== "owner") {
+      setShowRoleError(true);
+    }
   };
 
   return (
@@ -50,16 +77,23 @@ const ListForm = () => {
             } mt-20`}
           >
             <h1
-              className={`text-3xl font-black  ${darkMode && "text-blue-400"}`}
+              className={`text-3xl font-bold  ${darkMode && "text-blue-400"}`}
             >
               Earn extra income by renting your car with locals
             </h1>
-            <p className={`text-sm font-montserrat ${darkMode ? "opacity-40" : "opacity-75"}`}>
+            <p
+              className={`text-sm font-montserrat ${
+                darkMode ? "opacity-40" : "opacity-75"
+              }`}
+            >
               Have a car sitting idle? Turn it into an earning opportunity by
               listing it on Wheely! Renting out your car is easy, safe, and
               convenient.
             </p>
-            <form className="w-full flex flex-col gap-2 p-2 pt-5">
+            <form
+              className="w-full flex flex-col gap-2 p-2 pt-5"
+              onSubmit={handleFormSubmit}
+            >
               <input
                 placeholder="Brand"
                 name="brand"
@@ -103,15 +137,32 @@ const ListForm = () => {
                 />
               </div>
               <button
+                type="submit"
                 className={`${
                   darkMode && "text-slate-950"
-                } p-3 flex items-center justify-center font-bold bg-blue-400 mt-3 rounded-md`}
+                } p-3 flex items-center justify-center font-semibold bg-blue-400 mt-3 rounded-md`}
               >
                 Proceed
               </button>
             </form>
           </div>
         </div>
+        {showError && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+            onClick={() => setShowError(false)}
+          >
+            <LoginError />
+          </div>
+        )}
+        {showRoleError && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+            onClick={() => setShowRoleError(false)}
+          >
+            <RoleError />
+          </div>
+        )}
       </div>
     </>
   );
