@@ -50,7 +50,7 @@ const NavPopOver = () => {
             </h1>
           )}
           <div className="flex flex-col gap-1">
-            <h1 className="text-xl font-semibold">{userProfile.name}</h1>
+            <Link to="../dashboard/profile" className="text-xl font-semibold">{userProfile.name}</Link>
             <Link className="underline text-sm">Edit your profile</Link>
           </div>
         </div>
@@ -70,20 +70,24 @@ const NavPopOver = () => {
           Verify your profile
           <hr className="px-4 border-black/15" />
         </Link>
-        <Link className="flex flex-col gap-3 font-montserrat">
+        <Link to="../dashboard/rentals" className="flex flex-col gap-3 font-montserrat">
           Rentals
           <hr className="px-4 border-black/15" />
         </Link>
-        <Link className="flex flex-col gap-3 font-montserrat">
+        <Link to="../dashboard/payments" className="flex flex-col gap-3 font-montserrat">
           Payments
           <hr className="px-4 border-black/15" />
         </Link>
         <div className="p-3 font-montserrat bg-slate-300 rounded-xl flex flex-col gap-3">
-          <Link>
-            Become an owner <span className="text-xs">(list your car)</span>{" "}
-          </Link>
-          <hr className="px-4 border-black/15" />
-          <Link>Log out</Link>
+          {userProfile.role == "renter" && (
+            <>
+              <Link>
+                Become an owner <span className="text-xs">(list your car)</span>{" "}
+              </Link>
+              <hr className="px-4 border-black/15" />
+            </>
+          )}
+          <div className="cursor-pointer">Log out</div>
         </div>
       </PopoverPanel>
     </Popover>

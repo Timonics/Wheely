@@ -41,13 +41,17 @@ const Fleets = () => {
 
   const fleetsElements = fleets.map((fleet) => (
     <div className="flex flex-col">
-      <Link className="h-[220px] w-full flex rounded-xl shadow-2xl bg-blue-400 bg-opacity-50 p-4">
+      <Link className=" w-full flex justify-between items-center rounded-xl shadow-2xl bg-blue-400 bg-opacity-50 p-4">
         <img
           src=""
           alt=""
-          className="h-full w-[300px] rounded-xl bg-slate-500"
+          className="h-[100px] w-[100px] rounded-xl bg-slate-500"
         />
         <h1>{fleet.brand}</h1>
+      <div className="flex flex-col gap-3">
+        <div className="px-2 py-3 text-slate-300 w-[140px] rounded-xl text-sm font-semibold bg-blue-950 text-center">Update Car info</div>
+        <div className="px-2 py-3 text-slate-300 w-[140px] rounded-xl text-sm font-semibold bg-red-700 text-center">Delete Car</div>
+      </div>
       </Link>
     </div>
   ));

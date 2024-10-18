@@ -28,6 +28,14 @@ import AllUsers from "./components/Admin/admin-components/AllUsers";
 import UpdateUser from "./components/Admin/admin-components/UpdateUser";
 import DeleteUser from "./components/Admin/admin-components/DeleteUser";
 import CarFullForm from "./components/Listings/CarFullForm";
+import UserDashboard from "./components/Profile/UserDashboard";
+import UserProfile from "./components/Profile/UserProfile";
+import UserRentals from "./components/Profile/UserRentals";
+import UserPayments from "./components/Profile/UserPayments";
+import AccountSettings from "./components/Profile/profile-components/AccountSettings";
+import EditProfile from "./components/Profile/profile-components/EditProfile";
+import PaymentsMethod from "./components/Profile/profile-components/PaymentsMethod";
+import MyProfile from "./components/Profile/profile-components/MyProfile";
 
 const App = () => {
   return (
@@ -63,6 +71,16 @@ const App = () => {
         <Route path="my-bookings" element={<CarBookings />} />
         <Route path="my-earnings" element={<MyEarnings />} />
         <Route path="payout" element={<Payout />} />
+      </Route>
+      <Route path="dashboard" element={<UserDashboard />}>
+        <Route path="profile" element={<UserProfile />}>
+          <Route index element={<MyProfile />} />
+          <Route path="edit" element={<EditProfile />} />
+          <Route path="payments_method" element={<PaymentsMethod />} />
+          <Route path="settings" element={<AccountSettings />} />
+        </Route>
+        <Route path="rentals" element={<UserRentals />} />
+        <Route path="payments" element={<UserPayments />} />
       </Route>
     </Routes>
   );

@@ -5,9 +5,9 @@ const { User } = require("../models/users");
 const getAllBookings = async (req, res) => {
   try {
     const allBookings = await Booking.find()
-      .populate({path: "car", populate: "owner"})
+      .populate({ path: "car", populate: "owner" })
       .populate({ path: "renter", select: "-password -passwordHash" });
-    if (allBookings.length == 0)
+    if (allBookings.length == 0 || !allBookings)
       return res.status(400).send("No Bookings found");
 
     res.status(200).send(allBookings);

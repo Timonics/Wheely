@@ -120,7 +120,7 @@ const Signup = () => {
             value={registerData.firstName}
             placeholder="First Name"
             onChange={handleChange}
-            className={`outline-none p-3 border-b-2 border-b-blue-400 ${
+            className={`outline-none p-3 border-b-2 border-b-blue-400 rounded-md bg-white/80 ${
               darkMode && "rounded-md bg-slate-500 bg-opacity-80"
             }`}
           />
@@ -130,7 +130,7 @@ const Signup = () => {
             value={registerData.lastName}
             placeholder="Last Name"
             onChange={handleChange}
-            className={`outline-none p-3 border-b-2 border-b-blue-400 ${
+            className={`outline-none p-3 border-b-2 border-b-blue-400 rounded-md bg-white/80 ${
               darkMode && "rounded-md bg-slate-500 bg-opacity-80"
             }`}
           />
@@ -140,7 +140,7 @@ const Signup = () => {
             value={registerData.email}
             placeholder="Email"
             onChange={handleChange}
-            className={`outline-none p-3 border-b-2 border-b-blue-400 ${
+            className={`outline-none p-3 border-b-2 border-b-blue-400 rounded-md bg-white/80 ${
               darkMode && "rounded-md bg-slate-500  bg-opacity-80"
             }`}
           />
@@ -150,7 +150,7 @@ const Signup = () => {
             value={registerData.password}
             placeholder="Password"
             onChange={handleChange}
-            className={`outline-none p-3 border-b-2 border-b-blue-400 ${
+            className={`outline-none p-3 border-b-2 border-b-blue-400 rounded-md bg-white/80 ${
               darkMode && "rounded-md bg-slate-500  bg-opacity-80"
             }`}
           />
@@ -159,8 +159,8 @@ const Signup = () => {
             name="confirm-password"
             placeholder="Confirm password"
             onChange={handleChange}
-            className={`outline-none p-3 border-b-2 border-b-blue-400 ${
-              darkMode && "rounded-md bg-slate-500  bg-opacity-80"
+            className={`outline-none p-3 border-b-2 border-b-blue-400 rounded-md bg-white/80 ${
+              darkMode && "rounded-md bg-slate-500 bg-opacity-80"
             }`}
           />
           <div className="w-full flex gap-2">
@@ -168,8 +168,8 @@ const Signup = () => {
               name="role"
               value={registerData.role}
               onChange={handleChange}
-              className={`w-1/3 flex text-center font-bold ${
-                darkMode && "rounded-md bg-slate-500  bg-opacity-80"
+              className={`w-1/3 flex text-center font-bold rounded-md bg-white/80 ${
+                darkMode && "rounded-md bg-slate-500 bg-opacity-80"
               }`}
             >
               <option value="renter">Renter</option>
@@ -181,7 +181,7 @@ const Signup = () => {
               value={registerData.phone}
               placeholder="Phone Number"
               onChange={handleChange}
-              className={`outline-none p-3 border-b-2 border-b-blue-400 ${
+              className={`outline-none p-3 border-b-2 border-b-blue-400 rounded-md bg-white/80 ${
                 darkMode && "rounded-md bg-slate-500 bg-opacity-80"
               } w-2/3`}
             />

@@ -12,8 +12,8 @@ const Nav = () => {
   return (
     <div className="relative">
       <div className={`flex justify-between items-center `}>
-        <Link to="/" className="italic">
-          Wheely
+        <Link to="/" className="p-2 rounded-lg bg-gray-950 shadow-lg shadow-gray-400">
+          <p className="gradient-text font-montserrat font-bold">wheely</p>
         </Link>
         <div className="gap-8 flex mr-4 items-center">
           {!isAuthenticated ? (

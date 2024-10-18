@@ -10,21 +10,24 @@ import EndNote from "../components/EndNote/EndNote";
 import Footer from "../components/Footer/Footer";
 import { useMyAppContext } from "../context/myAppContext";
 
+import background from "../assets/homeBackground/wheely-background.webp"
+
 const Home = () => {
   const { darkMode } = useMyAppContext();
   return (
     <div className={`${darkMode && "bg-slate-800"}`}>
-      <div className={`flex flex-col h-[700px]`}>
+      <div className={`flex flex-col h-[700px] relative`}>
+        <img src={background} className="object-cover w-full h-full absolute blur-[x] -z-10"/>
         <div
           className={`${
-            darkMode ? "bg-slate-950 text-slate-300" : "text-slate-700 bg-slate-100"
+            darkMode ? "bg-slate-950 text-slate-300" : "text-slate-700"
           } p-4`}
         >
           <Nav />
         </div>
         <div
-          className={`p-4 h-[80%] ${
-            darkMode ? "bg-slate-950 shadow-2xl" : "bg-slate-100 shadow-lg"
+          className={`p-4 h-[80%] border-black ${
+            darkMode ? "bg-slate-950 shadow-2xl" : ""
           } `}
         >
           <Hero />

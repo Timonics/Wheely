@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 
 import { FaFacebook } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
@@ -52,7 +51,7 @@ const Login = () => {
       });
 
       setIsAuthenticated(true);
-      setUserProfile({...userData.data, token});
+      setUserProfile({ ...userData.data, token });
       navigate("/");
     } catch (error) {
       console.error("Error logging in:", error.message);
